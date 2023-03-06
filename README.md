@@ -64,3 +64,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## EverTry
+
+Introducing EverTry - the cutting-edge cryptocurrency platform that makes transactions faster, safer, and more convenient than ever before. With [EverTry](https://evertry.xyz/), you can now enjoy the flexibility and security of virtual dollars in Nigeria.
