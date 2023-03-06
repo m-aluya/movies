@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use App\Models\Rating;
+
 
 class AdminController extends Controller
 {
@@ -14,7 +17,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $movies = Movie::orderBy('title')->get(['title', '_id']);
+        $data['title'] = 'Home page';
+        $data['description'] = 'Description page';
+        return view('movies.admin.index', ['data' => collect($data), 'movies' => $movies]);
+        
     }
 
     /**
@@ -46,7 +53,24 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $movie = Movie::with('rating')->find($id);
+        $data['title'] = 'Stats';
+        $data['description'] = 'Description page';
+        $das = collect($movie);
+       
+        $rated = $das->get('rating');
+     
+
+        $rating = 0;
+        $nrate = 0;
+        foreach ($rated as $value) {
+            $rating = $rating +   $value['rating'];
+            $nrate++;
+          
+        }
+      $averageRatin =  $rating/$nrate;
+
+        return view('movies.admin.show',['data' => $data, 'movie' => $movie, 'rate' => $averageRatin]);
     }
 
     /**

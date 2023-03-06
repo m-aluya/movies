@@ -22,3 +22,5 @@ Route::get('/show/{id}',[\App\Http\Controllers\Movies\HomeController::class, 'sh
 Route::get('/delete/{id}',[\App\Http\Controllers\Movies\HomeController::class, 'destroy'])->name('delete');
 
 
+Route::get('/dashboard',[\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
+Route::get('/dashboard/show/{id}',[\App\Http\Controllers\Admin\AdminController::class, 'show'])->name('admin.show');
